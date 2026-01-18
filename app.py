@@ -164,3 +164,16 @@ if st.button("🪄 GENERATE 2 VARIATIONS", use_container_width=True):
             hti.screenshot(html_str=html_b, save_as='opsi_b.png')
             with open("opsi_b.png", "rb") as f:
                 st.download_button("Download Opsi B", f, "Opsi_B.png", "image/png")
+
+                # Tambahkan flags lebih lengkap untuk mematikan fitur desktop yang tidak perlu di server
+hti = Html2Image(
+    browser='chromium', 
+    custom_flags=[
+        '--no-sandbox', 
+        '--disable-dev-shm-usage', 
+        '--headless', 
+        '--disable-gpu', 
+        '--hide-scrollbars',
+        '--disable-software-rasterizer'
+    ]
+)
